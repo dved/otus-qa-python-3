@@ -5,24 +5,28 @@ from src.square import Square
 from src.circle import Circle
 
 
-def test_add_area_mix_types():
-    rectangle = Rectangle(2,6)
-    triangle = Triangle(2,2,3)
-    square = Square(4)
-    circle = Circle(2)
-    assert rectangle.add_area(triangle) == 13.98
-    assert triangle.add_area(square) == 17.98
-    assert square.add_area(circle) == 28.5664
-    assert circle.add_area(rectangle) == 24.5664
+@pytest.mark.parametrize('test_figure, other_figure, area_sum',
+                         [
+                            (Rectangle(10, 12.57), Rectangle(0.5,39.897), 145.6485),
+                            (Square(2), Square(15.98), 259.3604),
+                            (Circle(2), Circle(15.98), 814.8048),
+                            (Triangle(2,2,3), Triangle(15.98, 89.98, 83.15), 624.61),
+                            (Rectangle(2,6), Triangle(2, 2, 3), 13.98),
+                            (Triangle(2, 2, 3), Square(4), 17.98),
+                            (Square(4), Circle(2), 28.5664),
+                            (Circle(2), Rectangle(2,6), 24.5664)
+                        ])
+def test_add_area_mix_types(test_figure, other_figure, area_sum):
+    assert test_figure.add_area(other_figure) == area_sum
 
-def test_add_area_value_error():
-    rectangle = Rectangle(2, 6)
-    triangle = Triangle(2, 2, 3)
-    square = Square(4)
-    circle = Circle(2)
+
+@pytest.mark.parametrize('test_figure, area',
+                         [
+                             (Rectangle(2, 6), 5),
+                             (Triangle(2, 2, 3), '123'),
+                             (Square(4), True),
+                             (Circle(2), [1,2,3])
+                         ])
+def test_add_area_value_error(test_figure, area):
     with pytest.raises(ValueError):
-        rectangle.add_area(5)
-        triangle.add_area('123')
-        square.add_area(True)
-        circle.add_area([1,2,3])
-
+        test_figure.add_area(area)

@@ -8,11 +8,6 @@ class Square(Rectangle):
         self.side_a = side_a
         self.name = 'Square'
 
-    def get_perimeter(self):
-        return super().get_perimeter()
-
-    def get_area(self):
-        return super().get_area()
 
     def __str__(self):
         return f'{self.name} has side: {self.side_a}\

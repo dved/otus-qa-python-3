@@ -31,8 +31,3 @@ def test_rectangle_value_errors(side_a, side_b):
 def test_rectangle_type_errors(side_a, side_b):
     with pytest.raises(TypeError):
         rectangle = Rectangle(side_a, side_b)
-        
-def test_rectangle_add_area():
-    rectangle1 = Rectangle(10, 12.57)
-    rectangle2 = Rectangle(0.5,39.897)
-    assert rectangle1.add_area(rectangle2) == 145.6485

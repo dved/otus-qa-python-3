@@ -45,10 +45,3 @@ def test_triangle_value_error(side_a, side_b, side_c):
 def test_triangle_type_errors(side_a, side_b, side_c):
     with pytest.raises(TypeError):
         triangle = Triangle(side_a, side_b, side_c)
-
-def test_triangle_add_area():
-    triangle1 = Triangle(2,2,3)
-    triangle2 = Triangle(15.98, 89.98, 83.15)
-    assert triangle1.add_area(triangle2) == 624.61
-
-

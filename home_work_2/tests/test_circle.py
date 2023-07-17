@@ -35,11 +35,3 @@ def test_circle_value_errors(radius):
 def test_circle_type_error(radius):
     with pytest.raises(TypeError):
         circle = Circle(radius)
-
-def test_circle_add_area():
-    circle1 = Circle(2)
-    circle2 = Circle(15.98)
-    assert circle1.add_area(circle2) == 814.8048
-
-
-

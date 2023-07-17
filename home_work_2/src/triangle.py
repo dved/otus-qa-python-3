@@ -13,7 +13,7 @@ class Triangle(Figure):
         if side_a < 0 or side_b < 0 or side_c < 0:
             raise ValueError("At least one number was negative")
         # checking if passed values forms real triangle
-        if self.can_triangle_exist(side_a, side_b, side_c):
+        if Triangle.can_triangle_exist(side_a, side_b, side_c):
             self.__side_a = side_a
             self.__side_b = side_b
             self.__side_c = side_c
@@ -22,14 +22,13 @@ class Triangle(Figure):
             raise ValueError("Passed values cannot format the triangle,\
                                 at least one side greater then summ of two another")
 
-    def can_triangle_exist(self, side_a, side_b, side_c):
+    @staticmethod
+    def can_triangle_exist(side_a, side_b, side_c):
         if side_a + side_b > side_c and side_a + side_c > side_b and side_b + side_c > side_a:
             return True
         else:
             return False
 
-    def test_function(self):
-        print("some test function")
 
     def get_perimeter(self):
         return self.__side_a + self.__side_b + self.__side_c

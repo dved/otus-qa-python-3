@@ -30,10 +30,3 @@ def test_square_value_errors(side_a):
 def test_square_type_error(side_a):
     with pytest.raises(TypeError):
         square = Square(side_a)
-        
-def test_square_add_area():
-    square1 = Square(2)
-    square2 = Square(15.98)
-    assert square1.add_area(square2) == 259.3604
-
-
