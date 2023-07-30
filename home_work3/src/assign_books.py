@@ -1,5 +1,6 @@
-import json, csv, argparse;
-from pathlib import Path;
+import json, csv, argparse
+from pathlib import Path
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -48,7 +49,7 @@ user_reduced_keys = ('name', 'gender', 'address', 'age')
 users_reduced_data = [{key: value for key, value in user.items() if key in user_reduced_keys} for user in users]
 total_users = len(users_reduced_data)
 
-# convert csv data to list of disctionaries
+# convert csv data to list of dictionaries
 # make all keys lower, as original column name in CSV may contain uppercase
 # create list of keys from first row in csv reader
 books_keys = [k.lower() for k in books[0]]
@@ -57,10 +58,10 @@ books_list_values = [books[i] for i in range(1, len(books))]
 # create list of dictionaries from 2 lists
 books_list_dic = [{key: value for key, value in zip(books_keys, books_list_values[i])} for i in range(len(books_list_values))]
 
-book_reduced_keys = ('title', 'author','genre','pages')
+book_reduced_keys = ('title', 'author', 'genre', 'pages')
 books_reduced_data = [{key: value for key, value in book.items() if key in book_reduced_keys} for book in books_list_dic]
 total_books = len(books_reduced_data)
-if(total_books < total_users):
+if total_books < total_users:
     print (f"Books: {total_books} less then Users: {total_users}, \n"
            f" Cannot assign Books, so Exiting")
     raise SystemExit(1)
