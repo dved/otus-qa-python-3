@@ -163,3 +163,10 @@ home_work_2/.pytest_cache/
 home_work_2/venv/
 home_work_2/tests/.pytest_cache/
 home_work_2/.idea/
+
+home_work3/.pytest_cache/
+home_work3/venv/
+home_work3/tests/.pytest_cache/
+home_work3/.idea/
+home_work3/main.py
+home_work3/src/data_source
