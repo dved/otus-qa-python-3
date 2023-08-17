@@ -171,3 +171,10 @@ home_work3/.idea/
 home_work3/main.py
 home_work3/src/data_source
 learning
+
+home_work4/.pytest_cache/
+home_work4/venv/
+home_work4/tests/.pytest_cache/
+home_work4/.idea/
+home_work4/main.py
+
